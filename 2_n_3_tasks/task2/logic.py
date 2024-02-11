@@ -25,7 +25,7 @@ def find_unauthorized_sales(
     for sale_transaction in sales_transactions:
         product_id = sale_transaction["productID"]
         seller_id = sale_transaction["sellerID"]
-        if seller_id not in authorized_sellers_per_product[product_id]:
+        if product_id in authorized_sellers_per_product and seller_id not in authorized_sellers_per_product[product_id]:
             unauthorized_sellers_per_product[product_id].append(seller_id)
 
     return dict(unauthorized_sellers_per_product)

@@ -20,7 +20,7 @@ def index():
     )
 
 
-@app.route("/task2", methods=["POST"])
+@app.route("/task2/", methods=["POST"])
 @validate()
 def task2(body: ProductListingTransactionsRequest):
     unauthorized_sellers_per_product = find_unauthorized_sales(
@@ -40,7 +40,7 @@ def task2(body: ProductListingTransactionsRequest):
     return UnauthorizedSalesResponse(**res)
 
 
-@app.route("/task3", methods=["POST"])
+@app.route("/task3/", methods=["POST"])
 @validate()
 def task3(body: InterviewsRequest):
     START_TIME, END_TIME = 0, 1
